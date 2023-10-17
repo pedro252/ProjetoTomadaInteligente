@@ -33,9 +33,11 @@ void loop() {
 
     // Envie uma notificação para o celular
     sendNotification("Bateria fraca. Conecte o celular para carregar.");
-  } else {
+  } else if (nivelBateriaCelular == 80) {
     digitalWrite(tomadaPin, LOW);  // Desliga a tomada
-    Serial.println("Tomada desligada. Bateria do celular igual ou superior a 20%.");
+    Serial.println("Tomada desligada. Bateria do celular igual ou superior a 80%.");
+  } else {
+      digitalWrite(tomadaPin, LOW);
   }
 
   delay(10000);  // Aguarda 10 segundos antes de verificar novamente
